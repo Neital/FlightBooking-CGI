@@ -1,0 +1,25 @@
+services:
+  postgres:
+    container_name: 'flight-db'
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=flight_booking'
+      - 'POSTGRES_PASSWORD=CGIPraktika'
+      - 'POSTGRES_USER=flight_user'
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'postgres_data:/var/lib/postgresql/data'
+    restart: 'always'
+  backend:
+    build: '.'
+    container_name: 'flight-backend'
+    ports:
+      - '8080:8080'
+    environment:
+      db-url: 'jdbc:postgresql://postgres:5432/flight_booking'
+      db-username: 'flight_user'
+      db-password: 'CGIPraktika'
+    depends_on:
+      - postgres
+    restart: 'always'
