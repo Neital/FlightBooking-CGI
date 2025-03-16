@@ -1,6 +1,6 @@
 package com.CGI.controller;
 
-import com.CGI.model.entity.Flight;
+import com.CGI.dto.FlightDTO;
 import com.CGI.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +18,12 @@ public class FlightController {
     private FlightService flightService;
 
     @GetMapping
-    public List<Flight> getAllFlight() {
-        return flightService.getAllFlight();
+    public List<FlightDTO> getAllFlights() {
+        return flightService.getAllFlights();
     }
 
     @GetMapping("/{id}")
-    public Flight getFlightById(@PathVariable String id) {
+    public FlightDTO getFlightById(@PathVariable Long id) {
         return flightService.getFlightById(id);
     }
 }

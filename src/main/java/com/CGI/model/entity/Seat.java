@@ -8,7 +8,9 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.aspectj.apache.bcel.generic.FieldGen;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -35,15 +37,11 @@ public class Seat {
     @Column(nullable = false)
     private Set<SeatFeature> features;
 
-    @Column(nullable = false, columnDefinition = "boolean default true")
-    private boolean isAvailable = true;
-
     @ManyToOne
     @JoinColumn(name = "plane_id", nullable = false)
     private Plane plane;
 
-    @ManyToOne
-    @JoinColumn(name = "flight_id")  // Add a flight reference to track seat availability per flight
-    private Flight flight;
+    @OneToMany(mappedBy = "seat", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FlightSeat> flightSeats;
 
 }

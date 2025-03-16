@@ -38,8 +38,8 @@ public class Flight {
     @NotNull
     private Plane plane;
 
-    @OneToMany(mappedBy = "flight")
-    private List<Seat> seats;  // A list of seats specific to this flight
+    @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FlightSeat> flightSeats;
 
     public Duration getEstimatedFlightTime() {
         return Duration.between(startDate, arrivalDate);

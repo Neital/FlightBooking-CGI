@@ -1,11 +1,13 @@
 package com.CGI.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
 public class FlightDTO {
     private Long id;
     private String fromAirportCode;
@@ -19,5 +21,5 @@ public class FlightDTO {
     private LocalDateTime startDate;
     private LocalDateTime arrivalDate;
     private PlaneDTO plane;
-    private List<SeatDTO> seats;
+    private List<FlightSeatDTO> flightSeats;
 }

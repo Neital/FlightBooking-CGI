@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -22,10 +24,10 @@ public class Plane {
     @Column(nullable = false, unique = true)
     private String model; // Unique identifier
 
-    @OneToMany(mappedBy = "plane", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @MapKey(name = "position") // Maps Position to Seat
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @MapKey(name = "position")
     @NotNull
-    private Map<Position, Seat> seats;
+    private List<Seat> seats = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "seat_prices", joinColumns = @JoinColumn(name = "plane_id"))
