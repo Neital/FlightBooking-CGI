@@ -19,6 +19,9 @@ public class Plane {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
+    private String model; // Unique identifier
+
     @OneToMany(mappedBy = "plane", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @MapKey(name = "position") // Maps Position to Seat
     @NotNull

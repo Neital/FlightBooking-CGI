@@ -7,9 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(
-        name = "test"
-)
+@Table(name = "test")
 public class TestEntity {
     @Id
     @GeneratedValue

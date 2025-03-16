@@ -1,15 +1,9 @@
 package com.CGI.repository;
 
+import com.CGI.model.entity.Flight;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.CGI.model.entity.TestEntity;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TestEntityRepo extends JpaRepository<TestEntity, Long> {
+public interface FlightRepo extends JpaRepository<Flight, Long> {
 }
-
-
-
-
-
-
