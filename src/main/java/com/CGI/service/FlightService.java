@@ -3,6 +3,7 @@ package com.CGI.service;
 import com.CGI.model.entity.*;
 import com.CGI.model.enums.SeatClass;
 import com.CGI.model.enums.SeatFeature;
+import com.CGI.model.valueobject.Dimensions;
 import com.CGI.model.valueobject.Position;
 import com.CGI.repository.*;
 import jakarta.annotation.PostConstruct;
@@ -34,11 +35,39 @@ public class FlightService {
     @PostConstruct
     public void init() {
         if (flightRepo.count() == 0) {
-            //add methods later
+            //Flight 1
             createFlightFromScratch("JFK", "John F. Kennedy", "New York",
                     "USA", "LHR", "London Heathrow", "London",
                     "UK", "2025-04-16 17:30", "2025-04-16 20:00",
                     "Boeing 737", 20, 6, new int[]{90, 75, 50}, new int[]{1, 2, 3, 20}, new int[]{1, 10, 20});
+            // Flight 2
+            createFlightFromScratch("LAX", "Los Angeles International", "Los Angeles",
+                    "USA", "CDG", "Charles de Gaulle", "Paris",
+                    "France", "2025-04-17 10:00", "2025-04-17 18:00",
+                    "Airbus A350", 22, 8, new int[]{100, 85, 60},
+                    new int[]{2, 3, 5, 22}, new int[]{2, 12, 18});
+
+            // Flight 3
+            createFlightFromScratch("SFO", "San Francisco International", "San Francisco",
+                    "USA", "FRA", "Frankfurt Airport", "Frankfurt",
+                    "Germany", "2025-04-18 08:00", "2025-04-18 17:00",
+                    "Boeing 787", 18, 6, new int[]{120, 100, 70},
+                    new int[]{3, 4, 6, 18}, new int[]{3, 14, 16});
+
+            // Flight 4
+            createFlightFromScratch("ORD", "O'Hare International", "Chicago",
+                    "USA", "DXB", "Dubai International", "Dubai",
+                    "UAE", "2025-04-19 15:30", "2025-04-19 23:30",
+                    "Airbus A380", 25, 10, new int[]{110, 95, 65},
+                    new int[]{1, 4, 6, 25}, new int[]{5, 15, 20});
+
+            // Flight 5
+            createFlightFromScratch("MIA", "Miami International", "Miami",
+                    "USA", "HKG", "Hong Kong International", "Hong Kong",
+                    "China", "2025-04-20 22:00", "2025-04-21 15:00",
+                    "Boeing 747", 18, 8, new int[]{130, 105, 80},
+                    new int[]{2, 3, 7, 18}, new int[]{1, 10, 12});
+
         }
     }
 
@@ -90,6 +119,8 @@ public class FlightService {
 
         Plane plane = new Plane();
         plane.setModel(model);
+        Dimensions dimensions = new Dimensions(rowCount, colCount);
+        plane.setDimensions(dimensions);
 
         // Create seats for the plane
         List<Seat> seats = new ArrayList<>();
@@ -328,7 +359,9 @@ public class FlightService {
                 plane.getId(),
                 plane.getModel(),
                 plane.getSeats().stream().map(this::convertToSeatDTO).collect(Collectors.toList()),
-                plane.getSeatPrices()
+                plane.getSeatPrices(),
+                plane.getDimensions().getRowCount(),
+                plane.getDimensions().getColCount()
         );
     }
 

@@ -1,6 +1,7 @@
 package com.CGI.model.entity;
 
 import com.CGI.model.enums.SeatClass;
+import com.CGI.model.valueobject.Dimensions;
 import com.CGI.model.valueobject.Position;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -34,6 +35,10 @@ public class Plane {
     @MapKeyEnumerated(EnumType.STRING)
     @Column(name = "price", nullable = false)
     private Map<SeatClass, Integer> seatPrices;
+
+    @Embedded
+    @NotNull
+    private Dimensions dimensions;
 
     public int getMinSeatPrice() {
         return seatPrices.values().stream().min(Integer::compare).orElse(0);

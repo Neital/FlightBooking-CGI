@@ -1,6 +1,7 @@
 package com.CGI.dto;
 
 import com.CGI.model.enums.SeatClass;
+import com.CGI.model.valueobject.Dimensions;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -14,5 +15,7 @@ public class PlaneDTO {
     private String model;
     private List<SeatDTO> seats;
     private Map<SeatClass, Integer> seatPrices;
+    private int rowCount;
+    private int colCount;
 
 }
