@@ -65,3 +65,4 @@ pnpm-debug.log*
 
 ### Docker ###
 docker-compose.override.yml
+postgres_data/*
