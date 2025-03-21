@@ -4,7 +4,7 @@
 
     <div class="main-container">
 
-      <div class="central-column">
+      <div class="left-column">
         <flights-view @flight-selected="selectFlight"></flights-view>
       </div>
 
@@ -45,5 +45,10 @@ export default {
 </script>
 
 <style scoped>
+
+.main-container {
+  display: flex;
+  justify-content: space-evenly;
+}
 
 </style>

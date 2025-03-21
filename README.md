@@ -59,7 +59,7 @@ Tehtud: ~85%
 Kulunud aeg: 1.5 nädalat
 
 Tegemata:
-- meetod, mis jaotab juhuslikult vabu istekohti lennul.
+- meetod, mis jaotab juhuslikult vabu istekohti lennul. +
 - meetod, mis võimaldab käsitsi määrata istekohtade klassi lennukis.
 - meetod, mis salvestab valitud kohad ja muudab need kättesaamatuks.
 
@@ -71,10 +71,10 @@ Kulunud aeg: 6 tundi (?)
 
 Tegemata:
 - meetod, mis soovitab istekohti vastavalt soovitustele.
-- komponent, mis annab valida piletid ja soovitused.
-- istekoha valimise funktsionaalsus.
-- lennuki ja istekohtade välimus.
-- veebirakenduse välimus.
+- komponent, mis annab valida piletid ja soovitused. +
+- istekoha valimise funktsionaalsus. 
+- lennuki ja istekohtade välimus. +
+- veebirakenduse välimus. +
 
 ## Raskused <a name="struggles"></a>
 

@@ -25,7 +25,7 @@ public class Plane {
     @Column(nullable = false, unique = true)
     private String model; // Unique identifier
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @MapKey(name = "position")
     @NotNull
     private List<Seat> seats = new ArrayList<>();

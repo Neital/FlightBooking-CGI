@@ -1,14 +1,11 @@
 <template>
   <div class="footer">
     <p>&copy; 2025 Flight Booking App. All rights reserved.</p>
-    <p>Contact us: support@flightbooking.com</p>
+    <p>Made by Neital</p>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'FooterComponent',
-};
+<script setup>
 </script>
 
 <style scoped>
@@ -17,9 +14,6 @@ export default {
   color: white;
   padding: 20px;
   text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 }
 
 .footer p {

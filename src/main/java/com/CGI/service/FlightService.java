@@ -24,6 +24,8 @@ public class FlightService {
     private final PlaneRepo planeRepo;
     private final FlightSeatRepo flightSeatRepo;
 
+    private final Random random = new Random();
+
     @Autowired
     public FlightService(FlightRepo flightRepo, AirportRepo airportRepo, PlaneRepo planeRepo, FlightSeatRepo flightSeatRepo) {
         this.flightRepo = flightRepo;
@@ -58,7 +60,7 @@ public class FlightService {
             createFlightFromScratch("ORD", "O'Hare International", "Chicago",
                     "USA", "DXB", "Dubai International", "Dubai",
                     "UAE", "2025-04-19 15:30", "2025-04-19 23:30",
-                    "Airbus A380", 25, 10, new int[]{110, 95, 65},
+                    "Airbus A380", 25, 8, new int[]{110, 95, 65},
                     new int[]{1, 4, 6, 25}, new int[]{5, 15, 20});
 
             // Flight 5
@@ -67,6 +69,15 @@ public class FlightService {
                     "China", "2025-04-20 22:00", "2025-04-21 15:00",
                     "Boeing 747", 18, 8, new int[]{130, 105, 80},
                     new int[]{2, 3, 7, 18}, new int[]{1, 10, 12});
+
+            // Flight 6 - copy of flight 5
+            createFlightFromScratch("MIA", "Miami International", "Miami",
+                    "USA", "HKG", "Hong Kong International", "Hong Kong",
+                    "China", "2025-04-20 22:00", "2025-04-21 15:00",
+                    "Boeing 747", 18, 8, new int[]{130, 105, 80},
+                    new int[]{2, 3, 7, 18}, new int[]{1, 10, 12});
+
+            createFlightWithDetails("MIA", "HKG", "2025-04-19 15:30", "2025-04-20 08:30", "Airbus A350");
 
         }
     }
@@ -210,10 +221,15 @@ public class FlightService {
             FlightSeat flightSeat = new FlightSeat();
             flightSeat.setFlight(flight);
             flightSeat.setSeat(seat);
-            flightSeat.setAvailable(true); // Initially available
+            flightSeat.setAvailable(randomizeAvailability());
             flightSeats.add(flightSeat);
         }
         return flightSeats;
+    }
+
+    private boolean randomizeAvailability() {
+        //25% chance of being not available
+        return random.nextInt(4) != 0;
     }
 
     /**
