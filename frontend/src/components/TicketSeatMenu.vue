@@ -126,8 +126,11 @@ function getSeatClass(seat) {
 }
 
 function getRecommendedClass(seat) {
-  // Check if the seat is in the recommendedSeats list
-  if (recommendedSeats.value.some(s => s.id === seat.id)) {
+  // Flatten the recommendedSeats array to check for matching seat IDs
+  const flatRecommendedSeats = recommendedSeats.value.flat(); // Flattens the nested array structure
+
+  // Check if the seat is in the recommendedSeats list by comparing the seat IDs
+  if (flatRecommendedSeats.some(s => s.id === seat.id)) {
     return 'recommended-seat';  // Apply the recommended-seat class if the seat is in the list
   }
   return '';  // Return empty string if the seat is not recommended
@@ -235,7 +238,7 @@ const sendRequest = async (seats, prefs) => {
 }
 
 .recommended-seat {
-  border: 2px solid gold;
+  background-color: yellow;
 }
 
 .middle-gap {

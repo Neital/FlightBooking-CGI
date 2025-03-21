@@ -87,6 +87,6 @@ function selectFlight(flight) {
   background-color: #fff;
   padding: 10px;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 </style>
