@@ -17,31 +17,18 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import FlightsView from './components/FlightsView.vue';
 import TicketSeatMenu from './components/TicketSeatMenu.vue';
 
-export default {
-  name: 'App',
-  components: {
-    HeaderComponent,
-    FooterComponent,
-    FlightsView,
-    TicketSeatMenu
-  },
-  data() {
-    return {
-      selectedFlight: null
-    };
-  },
-  methods: {
-    selectFlight(flight) {
-      this.selectedFlight = flight;
-    }
-  }
-};
+const selectedFlight = ref(null);
+
+function selectFlight(flight) {
+  selectedFlight.value = flight;
+}
 </script>
 
 <style scoped>

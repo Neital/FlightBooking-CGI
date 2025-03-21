@@ -243,6 +243,6 @@ const sendRequest = async (seats, prefs) => {
 
 .middle-gap {
   grid-column: span 1;
-  width: 15px; /* Adjust gap width here */
+  width: 15px;
 }
 </style>

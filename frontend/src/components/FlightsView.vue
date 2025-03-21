@@ -1,7 +1,6 @@
 <template>
   <div class="flights-view">
 
-    <!-- Filters Component -->
     <TheFilters :allFlights="flights" @apply-filters="updateFilters" />
     <div>
       <h2>Available Flights</h2>

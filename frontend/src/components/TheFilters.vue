@@ -1,3 +1,5 @@
+<!-- Written by ChatGPT -->
+
 <template>
   <div class="filters-container">
     <h3>Filter Flights</h3>

@@ -79,6 +79,9 @@ public class FlightService {
 
             createFlightWithDetails("MIA", "HKG", "2025-04-19 15:30", "2025-04-20 08:30", "Airbus A350");
 
+            createFlightWithDetails("JFK", "LHR", "2025-06-16 11:30", "2025-06-16 14:00", "Boeing 737");
+
+            createFlightWithDetails("ORD", "DXB", "2025-05-11 23:30", "2025-05-12 07:30", "Airbus A380");
         }
     }
 
@@ -264,7 +267,7 @@ public class FlightService {
     }
 
     /**
-     * Main method for creating a flight with required airports and plane.
+     * Main method for creating a flight with required airports and plane. Written with assistance of ChatGPT
      * @param fromAirportCode first airport identificator.
      * @param fromAirportName first airport name.
      * @param fromAirportCity first airport city.

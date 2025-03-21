@@ -70,7 +70,7 @@ Tehtud: ~65%
 Kulunud aeg: 6 tundi (?)
 
 Tegemata:
-- meetod, mis soovitab istekohti vastavalt soovitustele.
+- meetod, mis soovitab istekohti vastavalt soovitustele. +
 - komponent, mis annab valida piletid ja soovitused. +
 - istekoha valimise funktsionaalsus. 
 - lennuki ja istekohtade välimus. +

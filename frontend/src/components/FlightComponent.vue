@@ -25,7 +25,6 @@ const handleDetails = () => {
 
 <template v-if="flight">
   <div class="flight-details">
-<!-- 1st div  -->
 
     <div class="inner-details">
       <h2>{{format(startDate, 'HH:mm')}}</h2>
