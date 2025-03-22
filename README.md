@@ -12,6 +12,8 @@ Lennureisijale lennu planeerimise ja lennukis istekohtade soovitamise veebiraken
 
 ## Programmi käivitamine <a name="setup"></a>
 
+See kasutusjuhend on mõeldud Windowsi kasutajatele.
+
 Repositooriumi kloonimiseks kasutage järgmine käsk:
 
 ``git clone https://github.com/Neital/FlightBooking-CGI.git``
@@ -30,19 +32,29 @@ Avage projekt IntelliJ-s ning käivitage järgmine käsk:
 
 ``gradle wrapper``
 
+Kui soovite programmi käivitada lokaalselt, peate käivitama ka järgmised käsud:
+
+``cd frontend``
+
+``npm install``
+
+``cd ..``
+
 Kui mingil põhjusel build ebaõnnestus, parandage probleemid enne jätkamist.
 
-Järgmine samm on:
+### Programmi käivitamine lokaalselt
 
-``./start.bat``
+``.\start-local.bat``
 
-Skripti sees on kaks käsku, 1. eemaldab eelmised konteinerid ja 2. uuesti ehitab projekti.
+### Programmi käivitamine Dockeriga
 
-Viimane samm on:
+Docker Desktop peab olema käivitatud.
 
-``docker compose up --build``
+``.\start-docker.bat``
 
-Projekt loob kolm konteinerit andmebaasi, backend'i ja frontend'i jaoks. Backend on kättesaadav läbi http://localhost:8080/ ning frontend läbi http://localhost:3000/
+- Programmi lõpetamisel ``Ctrl+C`` ilmub ``End execution of batch file [Y(yes)/N(no)]?``, valige no (see käivitab docker-compose down). 
+
+Backend on kättesaadav läbi http://localhost:8080/ ning frontend läbi http://localhost:3000/
 
 ## Progress <a name="progress"></a>
 
@@ -54,27 +66,27 @@ Kulunud aeg: umbes 3-6 päeva (palju väikseid parandusi)
 
 ### Backend
 
-Tehtud: ~85%
+Tehtud: ~95%
 
-Kulunud aeg: 1.5 nädalat
+Kulunud aeg: 1.75 nädalat
 
 Tegemata:
-- meetod, mis jaotab juhuslikult vabu istekohti lennul. +
-- meetod, mis võimaldab käsitsi määrata istekohtade klassi lennukis.
-- meetod, mis salvestab valitud kohad ja muudab need kättesaamatuks.
+- ~~meetod, mis jaotab juhuslikult vabu istekohti lennul.~~
+- meetod, mis võimaldab käsitsi määrata istekohtade klassi lennukis. (Oleks tore, kuid mitte vajalik)
+- meetod, mis salvestab valitud kohad ja muudab need kättesaamatuks. (Tehniliselt ei ole nõutav vastavalt kirjeldusele)
 
 ### Frontend
 
-Tehtud: ~65%
+Tehtud: ~95%
 
-Kulunud aeg: 6 tundi (?)
+Kulunud aeg: 2 päeva
 
 Tegemata:
-- meetod, mis soovitab istekohti vastavalt soovitustele. +
-- komponent, mis annab valida piletid ja soovitused. +
-- istekoha valimise funktsionaalsus. 
-- lennuki ja istekohtade välimus. +
-- veebirakenduse välimus. +
+- ~~meetod, mis soovitab istekohti vastavalt soovitustele.~~
+- ~~komponent, mis annab valida piletid ja soovitused.~~
+- istekoha valimise funktsionaalsus. (Tehniliselt ei ole nõutav vastavalt kirjeldusele)
+- ~~lennuki ja istekohtade välimus.~~
+- ~~veebirakenduse välimus.~~
 
 ## Raskused <a name="struggles"></a>
 
@@ -112,3 +124,4 @@ Eelmised vue projektid meeldetuletamiseks
 - Kirjutas WebConfig
 - Koostas enamiku vue komponentidest ja aitas lahendada probleeme (palju asju pidin siiski ise parandama)
 - Genereeris juhuslikud väärtused andmebaasi täitmiseks
+- Kirjutas SeatRecommenderService, kasutades minu poolt kirjeldatud algoritmi
